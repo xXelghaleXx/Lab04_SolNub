@@ -36,7 +36,7 @@
       color: #666;
     }
 
-    .user-form, .user-list {
+    .user-form, .user-list, .product-form, .product-list {
       margin-bottom: 30px;
     }
 
@@ -54,7 +54,7 @@
       color: #333;
     }
 
-    input[type="text"], input[type="email"] {
+    input[type="text"], input[type="email"], input[type="number"] {
       width: 100%;
       padding: 8px;
       box-sizing: border-box;
@@ -76,17 +76,17 @@
       font-weight: bold;
     }
 
-    #saveBtn {
+    #saveBtn, #saveProductBtn {
       background-color: #28a745;
       color: white;
     }
 
-    #cancelBtn {
+    #cancelBtn, #cancelProductBtn {
       background-color: #dc3545;
       color: white;
     }
 
-    #addUserBtn {
+    #addUserBtn, #addProductBtn {
       padding: 8px 12px;
       margin-bottom: 10px;
       background-color: #007bff;
@@ -186,6 +186,55 @@
           <tbody>
             <tr>
               <td colspan="5" style="text-align: center; color: #888;">No hay usuarios registrados</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <!-- Sección de Productos -->
+      <section class="product-form">
+        <h2><i class="fas fa-box"></i> Agregar/Editar Producto</h2>
+        <form id="productForm">
+          <input type="hidden" id="productId">
+          
+          <div class="form-group">
+            <label for="productName"><i class="fas fa-tag"></i> Nombre del Producto:</label>
+            <input type="text" id="productName" name="productName" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="price"><i class="fas fa-dollar-sign"></i> Precio:</label>
+            <input type="number" id="price" name="price" step="0.01" min="0" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="stock"><i class="fas fa-warehouse"></i> Stock:</label>
+            <input type="number" id="stock" name="stock" min="0" required>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" id="saveProductBtn"><i class="fas fa-save"></i> Guardar</button>
+            <button type="button" id="cancelProductBtn"><i class="fas fa-times"></i> Cancelar</button>
+          </div>
+        </form>
+      </section>
+      
+      <section class="product-list">
+        <h2><i class="fas fa-boxes"></i> Lista de Productos</h2>
+        <button id="addProductBtn"><i class="fas fa-plus-circle"></i> Agregar Producto</button>
+        <table id="productsTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="5" style="text-align: center; color: #888;">No hay productos registrados</td>
             </tr>
           </tbody>
         </table>
