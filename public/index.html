@@ -1,49 +1,178 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD App - Node.js, Express, Sequelize & MySQL</title>
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome para los íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    header, footer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    header p {
+      color: #666;
+    }
+
+    .user-form, .user-list {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #444;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+
+    .form-actions {
+      margin-top: 10px;
+    }
+
+    .form-actions button {
+      padding: 10px 15px;
+      margin-right: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #saveBtn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #cancelBtn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    #addUserBtn {
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f8f9fa;
+    }
+
+    .action-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+
+    .action-btn.edit {
+      color: #ffc107;
+    }
+
+    .action-btn.delete {
+      color: #dc3545;
+    }
+
+    footer {
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>CRUD App</h1>
+      <h1><i class="fas fa-database"></i> CRUD App</h1>
       <p>Una aplicación CRUD construida con Node.js, Express, Sequelize y MySQL</p>
     </header>
     
     <main>
       <section class="user-form">
-        <h2>Agregar/Editar Usuario</h2>
+        <h2><i class="fas fa-user-plus"></i> Agregar/Editar Usuario</h2>
         <form id="userForm">
           <input type="hidden" id="userId">
           
           <div class="form-group">
-            <label for="name">Nombre:</label>
+            <label for="name"><i class="fas fa-user"></i> Nombre:</label>
             <input type="text" id="name" name="name" required>
           </div>
           
           <div class="form-group">
-            <label for="email">Email:</label>
+            <label for="email"><i class="fas fa-envelope"></i> Email:</label>
             <input type="email" id="email" name="email" required>
           </div>
           
           <div class="form-group">
-            <label for="active">Activo:</label>
+            <label for="active"><i class="fas fa-toggle-on"></i> Activo:</label>
             <input type="checkbox" id="active" name="active" checked>
           </div>
           
           <div class="form-actions">
-            <button type="submit" id="saveBtn">Guardar</button>
-            <button type="button" id="cancelBtn">Cancelar</button>
+            <button type="submit" id="saveBtn"><i class="fas fa-save"></i> Guardar</button>
+            <button type="button" id="cancelBtn"><i class="fas fa-times"></i> Cancelar</button>
           </div>
         </form>
       </section>
       
       <section class="user-list">
-        <h2>Lista de Usuarios</h2>
-        <button id="addUserBtn">Agregar Usuario</button>
+        <h2><i class="fas fa-users"></i> Lista de Usuarios</h2>
+        <button id="addUserBtn"><i class="fas fa-user-plus"></i> Agregar Usuario</button>
         <table id="usersTable">
           <thead>
             <tr>
@@ -55,14 +184,16 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Los usuarios se cargarán aquí mediante JavaScript -->
+            <tr>
+              <td colspan="5" style="text-align: center; color: #888;">No hay usuarios registrados</td>
+            </tr>
           </tbody>
         </table>
       </section>
     </main>
     
     <footer>
-      <p>&copy; 2025 CRUD App</p>
+      <p>© 2025 CRUD App</p>
     </footer>
   </div>
 
