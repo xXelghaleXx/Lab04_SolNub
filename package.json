@@ -1,0 +1,34 @@
+{
+  "name": "node-express-mysql-crud",
+  "version": "1.0.0",
+  "description": "CRUD application with Node.js, Express, Sequelize and MySQL",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mysql",
+    "sequelize",
+    "crud",
+    "docker"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.9.0",
+    "sequelize": "^6.35.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.3",
+    "supertest": "^6.3.4"
+  }
+}

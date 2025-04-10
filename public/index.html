@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD App - Node.js, Express, Sequelize & MySQL</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>CRUD App</h1>
+      <p>Una aplicación CRUD construida con Node.js, Express, Sequelize y MySQL</p>
+    </header>
+    
+    <main>
+      <section class="user-form">
+        <h2>Agregar/Editar Usuario</h2>
+        <form id="userForm">
+          <input type="hidden" id="userId">
+          
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="active">Activo:</label>
+            <input type="checkbox" id="active" name="active" checked>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" id="saveBtn">Guardar</button>
+            <button type="button" id="cancelBtn">Cancelar</button>
+          </div>
+        </form>
+      </section>
+      
+      <section class="user-list">
+        <h2>Lista de Usuarios</h2>
+        <button id="addUserBtn">Agregar Usuario</button>
+        <table id="usersTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Los usuarios se cargarán aquí mediante JavaScript -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 CRUD App</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
